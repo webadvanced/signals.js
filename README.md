@@ -33,7 +33,9 @@ Signals.js is a light weight (1k minified) pure JavaScript implementation of the
 			sayItBackSpan.innerHTML = text;
 		};
 
-		//Tell signals.js to subscribe our private functions to sayingSomething (this is arbitrary text, you create the signal types)
+		//Tell signals.js to subscribe our private functions to 
+		//the sayingSomething type
+		//(this is arbitrary text, *you* create the signal types)
 		signals.subscribe('sayingSomething', updateCharCount);
 		signals.subscribe('sayingSomething', updatePreview);
 	}(document, signals));
