@@ -49,7 +49,8 @@ Signals.js is a light weight (1k minified) pure JavaScript implementation of the
 
 ###What is PubSub (Observer)?###
 
-Sourced from [scriptjunkie{}](http://msdn.microsoft.com/en-us/scriptjunkie/hh201955.aspx) written by [Addy Osmani](http://addyosmani.com/blog/)
+*Sourced from [scriptjunkie{}](http://msdn.microsoft.com/en-us/scriptjunkie/hh201955.aspx) written by [Addy Osmani](http://addyosmani.com/blog/)*
+
 > The general idea behind the Observer pattern is the promotion of loose coupling (or decoupling as it's also referred as). Rather than single objects calling on the methods of other objects, an object instead   subscribes to a specific task or activity of another object and is notified when it occurs. Observers are also called Subscribers and we refer to the object being observed as the Publisher (or the subject). Publishers notify subscribers when events occur.
 
 > When objects are no longer interested in being notified by the subject they are registered with, they can unregister (or unsubscribe) themselves. The subject will then in turn remove them from the observer collection. 
