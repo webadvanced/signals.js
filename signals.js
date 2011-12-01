@@ -14,12 +14,12 @@ var signals = (function (global, undefined) {
             evts[subjectType] = [];
         }
     };
-	
+
     subscribeToObservable = function (type, fn) {
         var subjectType = getSubjectType(type);
         evts[subjectType].push(fn);
     };
-	
+
     takeAction = function (action, type, arg) {
         var subjectType = getSubjectType(type),
             actions = evts[subjectType],
@@ -39,17 +39,17 @@ var signals = (function (global, undefined) {
             takeAction(actions[i], arg, actions, i);
         }
     };
-	
+
 	callFn = function (fn, arg) {
 		global.setTimeout(function () { fn(arg); }, 0);
 	};
-	
+
 	spliceFn = function (fn, arg, actions, i) {
 		if (actions[i] === arg) {
 			actions.splice(i, 1);
         }
 	};
-	
+
     getSubjectType = function (type) {
         return type || 'any';
     };

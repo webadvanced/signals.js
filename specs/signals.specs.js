@@ -57,7 +57,7 @@ describe("Signals JS", function () {
         });
 	});
 	
-    it('should be able to unsubscribe func from mock:event', function () {
+    it('should be able to unsubscribe fakeFunc from mock:event', function () {
         expect(signals.subscriberCount('mock:event')).toEqual(3);
         signals.unsubscribe('mock:event', fakeFunc);
         expect(signals.subscriberCount('mock:event')).toEqual(2);
