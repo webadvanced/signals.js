@@ -1,7 +1,7 @@
 describe("Signals JS", function () {
     var flag_1 = false;
     var flag_2 = false;
-	var mockString = "";
+	var mockString = '';
     function fakeFunc() {
         flag_1 = true;
     }
@@ -15,19 +15,41 @@ describe("Signals JS", function () {
         falg_2 = false;
 		mockString = '';
     });
+	
+	var Person = function(name) {
+		this.name = name;
+		signals.subscribe('mock:event', this.setName, this);
+	};
+	Person.prototype.setName = function () {
+			mockString = this.name;
+	};
+	var person = new Person('Jon');
     it("should be able to subscribe a single func to mock:event", function () {
         signals.subscribe('mock:event', fakeFunc);
         expect(signals.isObservable('mock:event')).toEqual(true);
     });
 
+	it('should be able to set the context of "this" when subscribing', function() {
+		runs(function() {
+			var person = new Person('Jon');
+			signals.broadcast('mock:event');
+		});
+		waits(150);
+        runs(function () {
+            expect(mockString).toBe('Jon');
+        });
+	});
+	
     it("should be able to subscribe multiple funcs to mock:event", function () {
         signals.subscribe('mock:event', function () { flag_2 = true; });
         expect(signals.isObservable('mock:event')).toEqual(true);
-        expect(signals.subscriberCount('mock:event')).toEqual(2);
+        expect(signals.subscriberCount('mock:event')).toEqual(4);
     });
 
     it("should be able to broadcast all funcs assoiated with mock:event type", function () {
 		runs(function () {
+			flag_1 = false;
+			flag_2 = false;
             expect(flag_1).toBeFalsy();
             expect(flag_2).toBeFalsy();
             signals.broadcast('mock:event');
@@ -58,8 +80,10 @@ describe("Signals JS", function () {
 	});
 	
     it('should be able to unsubscribe fakeFunc from mock:event', function () {
-        expect(signals.subscriberCount('mock:event')).toEqual(3);
+        expect(signals.subscriberCount('mock:event')).toEqual(5);
         signals.unsubscribe('mock:event', fakeFunc);
-        expect(signals.subscriberCount('mock:event')).toEqual(2);
+        expect(signals.subscriberCount('mock:event')).toEqual(4);
     });
+	
+	
 });

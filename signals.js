@@ -5,8 +5,8 @@ var signals = (function (global, undefined) {
         subscribeToObservable,
         takeAction,
 		getSubjectType,
-		callFn,
-		spliceFn;
+		fire,
+		discharge;
 
     makeObservable = function (type) {
         var subjectType = getSubjectType(type);
@@ -15,9 +15,9 @@ var signals = (function (global, undefined) {
         }
     };
 
-    subscribeToObservable = function (type, fn) {
-        var subjectType = getSubjectType(type);
-        evts[subjectType].push(fn);
+    subscribeToObservable = function (type, fn, context) {
+		var subjectType = getSubjectType(type);
+		evts[subjectType].push({callback: fn, obj: context || global});
     };
 
     takeAction = function (action, type, arg) {
@@ -30,9 +30,9 @@ var signals = (function (global, undefined) {
             return;
         }
 		if (action === 'onComplete') {
-			takeAction = callFn;
+			takeAction = fire;
 		} else {
-			takeAction = spliceFn;
+			takeAction = discharge;
 		}
         l = actions.length;
         for (i; i < l; i += 1) {
@@ -40,12 +40,14 @@ var signals = (function (global, undefined) {
         }
     };
 
-	callFn = function (fn, arg) {
-		global.setTimeout(function () { fn(arg); }, 0);
+	fire = function (signal, arg) {
+		var ctx = signal.obj,
+			fn = signal.callback;
+		global.setTimeout(function () { fn.call(ctx, arg); }, 0);
 	};
 
-	spliceFn = function (fn, arg, actions, i) {
-		if (actions[i] === arg) {
+	discharge = function (signal, arg, actions, i) {
+		if (signal !== undefined && signal.callback === arg) {
 			actions.splice(i, 1);
         }
 	};
@@ -55,9 +57,9 @@ var signals = (function (global, undefined) {
     };
 
     return {
-        subscribe: function (type, fn) {
+        subscribe: function (type, fn, context) {
             makeObservable(type);
-            subscribeToObservable(type, fn);
+            subscribeToObservable(type, fn, context);
         },
         broadcast: function (type, arg) {
             takeAction('onComplete', type, arg);
@@ -70,6 +72,7 @@ var signals = (function (global, undefined) {
             return evts[subjectType] !== undefined;
         },
         subscriberCount: function (type) {
+		
             var subjectType = getSubjectType(type),
                 actions = evts[subjectType];
             return actions !== undefined ? actions.length : 0;
