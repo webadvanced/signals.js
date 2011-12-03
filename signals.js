@@ -6,7 +6,7 @@ var signals = (function (global, undefined) {
         takeAction,
 		getSubjectType,
 		fire,
-		discharge;
+		unload;
 
     makeObservable = function (type) {
         var subjectType = getSubjectType(type);
@@ -32,7 +32,7 @@ var signals = (function (global, undefined) {
 		if (action === 'onComplete') {
 			takeAction = fire;
 		} else {
-			takeAction = discharge;
+			takeAction = unload;
 		}
         l = actions.length;
         for (i; i < l; i += 1) {
@@ -46,7 +46,7 @@ var signals = (function (global, undefined) {
 		global.setTimeout(function () { fn.call(ctx, arg); }, 0);
 	};
 
-	discharge = function (signal, arg, actions, i) {
+	unload = function (signal, arg, actions, i) {
 		if (signal !== undefined && signal.callback === arg) {
 			actions.splice(i, 1);
         }
@@ -72,7 +72,7 @@ var signals = (function (global, undefined) {
             return evts[subjectType] !== undefined;
         },
         subscriberCount: function (type) {
-		
+
             var subjectType = getSubjectType(type),
                 actions = evts[subjectType];
             return actions !== undefined ? actions.length : 0;
