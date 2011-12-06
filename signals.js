@@ -13,7 +13,7 @@ var signals = (function (global, undefined) {
 	"use strict";
     var evts = [],
         makeObservable,
-        subscribeToObservable,
+        subscribeToSignal,
         takeAction,
 		getSignalType,
 		fire,
