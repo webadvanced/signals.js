@@ -115,6 +115,7 @@ var signals = (function (global, undefined) {
     return {
 		/**
 		* Add a Listener to the given Signal.
+		* @name signals.subscribe
 		* @param {string} [signal] The signal.
 		* @param {Function} Listener that should be added to the Signal.
 		* @param {Object} [context] Context on which the listener will be executed (object that should represent the `this`. (default = window)
@@ -125,6 +126,7 @@ var signals = (function (global, undefined) {
         },
 		/**
 		* Broadcast to all listeners of the given signal to execute.
+		* @name signals.broadcast
 		* @param {string} [signal] The signal.
 		* @param {Object} Will be passed to each function as the argument.
 		*/
@@ -133,6 +135,7 @@ var signals = (function (global, undefined) {
         },
 		/**
 		* Remove a listener from the given signal.
+		* @name signals.unsubscribe
 		* @param {string} [signal] The signal.
 		* @param {Function} Function that should be removed.
 		*/
@@ -141,7 +144,7 @@ var signals = (function (global, undefined) {
         },
 		/**
 		* Check is Signal is observable.
-		* @name isObservable
+		* @name signals.isObservable
 		* @param {string} [signal] The signal.
 		* @return {boolean} if signal is observable.
 		*/
@@ -151,7 +154,7 @@ var signals = (function (global, undefined) {
         },
 		/**
 		* Gets the count of Listeners for the given Signal.
-		* @name listenerCount
+		* @name signals.listenerCount
 		* @param {string} [signal] The signal.
 		* @return {Number} Number of Listeners. (default = 0).
 		*/
