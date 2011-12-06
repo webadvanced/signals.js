@@ -43,7 +43,7 @@ describe("Signals JS", function () {
     it("should be able to subscribe multiple funcs to mock:event", function () {
         signals.subscribe('mock:event', function () { flag_2 = true; });
         expect(signals.isObservable('mock:event')).toEqual(true);
-        expect(signals.subscriberCount('mock:event')).toEqual(4);
+        expect(signals.listenerCount('mock:event')).toEqual(4);
     });
 
     it("should be able to broadcast all funcs assoiated with mock:event type", function () {
@@ -80,9 +80,9 @@ describe("Signals JS", function () {
 	});
 	
     it('should be able to unsubscribe fakeFunc from mock:event', function () {
-        expect(signals.subscriberCount('mock:event')).toEqual(5);
+        expect(signals.listenerCount('mock:event')).toEqual(5);
         signals.unsubscribe('mock:event', fakeFunc);
-        expect(signals.subscriberCount('mock:event')).toEqual(4);
+        expect(signals.listenerCount('mock:event')).toEqual(4);
     });
 	
 	
