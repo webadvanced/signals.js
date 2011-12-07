@@ -19,7 +19,9 @@ Signals.js is a light weight (1k minified) pure JavaScript implementation of the
 	</div>
 	
 **JavaScript**
+
 *put below script just above the </body> tag*	
+
 	(function (d, signals) {
 		//defining some *private* functions and variables
 		var updateCharCount,
