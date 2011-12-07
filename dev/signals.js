@@ -36,12 +36,12 @@ var signals = (function (global, undefined) {
 	* <br />- <strong>(signals are an arbitrary string)</strong>
 	* @private
 	* @name subscribeToSignal
-	* @param {string} [signal] Name of the observable signal. (default = 'any').
+	* @param {string} [signalName] Name of the signal. (default = 'any').
 	* @param {Function} [fn] Callback function bound to the signal.
 	* @param {Object} [context] Context on which listener will be executed (object that should represent the `this`. (default = window)
 	*/
-    subscribeToSignal = function (signal, fn, context) {
-		var signalType = getSignalType(signal);
+    subscribeToSignal = function (signalName, fn, context) {
+		var signalType = getSignalType(signalName);
 		evts[signalType].push({callback: fn, obj: context || global});
     };
 	/**
@@ -49,11 +49,11 @@ var signals = (function (global, undefined) {
 	* @private
 	* @name takeAction
 	* @param {string} [action] The action the function should take with the given arguments.
-	* @param {string} [signal] Name of the signal. (default = 'any').
+	* @param {string} [signalName] Name of the signal. (default = 'any').
 	* @param {Object} [arg] The args that will be passed to the Listeners or the function to be unsubscribed.
 	*/
-    takeAction = function (action, signal, arg) {
-        var signalType = getSignalType(signal),
+    takeAction = function (action, signalName, arg) {
+        var signalType = getSignalType(signalName),
             actions = evts[signalType],
             i = 0,
             l,
@@ -116,24 +116,24 @@ var signals = (function (global, undefined) {
 		/**
 		* Add a Listener to the given Signal.
 		* @name signals.subscribe
-		* @param {string} [signal] The signal.
+		* @param {string} [signalName] The signals name.
 		* @param {Function} Listener that should be added to the Signal.
 		* @param {Object} [context] Context on which the listener will be executed (object that should represent the `this`. (default = window)
 		* @function
 		*/
-        subscribe: function (signal, fn, context) {
-            makeObservable(signal);
-            subscribeToSignal(signal, fn, context);
+        subscribe: function (signalName, fn, context) {
+            makeObservable(signalName);
+            subscribeToSignal(signalName, fn, context);
         },
 		/**
 		* Broadcast to all listeners of the given signal to execute.
 		* @name signals.broadcast
 		* @param {string} [signal] The signal.
-		* @param {Object} Will be passed to each function as the argument.
+		* @param {Object} [arg] Will be passed to each function as the argument.
 		* @function
 		*/
-        broadcast: function (signal, arg) {
-            takeAction('broadcast', signal, arg);
+        broadcast: function (signalName, arg) {
+            takeAction('broadcast', signalName, arg);
         },
 		/**
 		* Remove a listener from the given signal.
@@ -146,7 +146,7 @@ var signals = (function (global, undefined) {
             takeAction('unsubscribe', signal, fn);
         },
 		/**
-		* Check is Signal is observable.
+		* Check if Signal is observable.
 		* @name signals.isObservable
 		* @param {string} [signal] The signal.
 		* @return {boolean} if signal is observable.
