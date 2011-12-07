@@ -1,0 +1,402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>JsDoc Reference - signals</title>
+
+        <link rel="stylesheet" href="../static/default.css" type="text/css" media="screen" charset="utf-8" />
+	</head>
+
+	<body>
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<div id="header">
+</div>
+		<!-- end static/header.html -->
+
+        
+
+<!-- ============================== classes index ============================ -->
+		<div id="index">
+            <div id="docs">
+                
+            </div>
+			
+<h2>Index</h2>
+<ul class="classList">
+  <li><a href="../files.html">File Index</a></li>
+  <li><a href="../index.html">Class Index</a></li>
+  <li><a href="../symbolindex.html">Symbol Index</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="classList">
+	
+	<li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+	
+	<li><a href="../symbols/signals.html">signals</a></li>
+	
+</ul>
+
+		</div>
+		
+        <div id="symbolList">
+           <!-- constructor list -->
+           
+             <h3>
+                 Namespace 
+             </h3>
+             <ul>
+                <li  class="fixedFont">
+                  <a href="../symbols/signals.html">signals</a>
+                </li>
+             </ul>
+           
+           <!-- end constructor list -->
+
+           <!-- properties list -->
+           
+           
+           <!-- end properties list -->
+
+           <!-- function summary -->
+           
+           
+             <h3>Functions</h3>
+             <ul>
+               
+                   <li class="fixedFont">
+                        <a href="../symbols/signals.html#.broadcast">broadcast</a>
+                    </li>
+               
+                   <li class="fixedFont">
+                        <a href="../symbols/signals.html#.isObservable">isObservable</a>
+                    </li>
+               
+                   <li class="fixedFont">
+                        <a href="../symbols/signals.html#.listenerCount">listenerCount</a>
+                    </li>
+               
+                   <li class="fixedFont">
+                        <a href="../symbols/signals.html#.subscribe">subscribe</a>
+                    </li>
+               
+                   <li class="fixedFont">
+                        <a href="../symbols/signals.html#.unsubscribe">unsubscribe</a>
+                    </li>
+               
+             </ul>
+           
+           <!-- end function summary -->
+
+           <!-- events summary -->
+           
+           
+           <!-- end events summary -->
+        </div>
+
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				Namespace signals
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				
+			
+				Signals Namespace - A lightweight (1k minified) pure JavaScript PubSub library
+				
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/signals.js.html">signals.js</a>.
+				
+			</p>
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Namespace Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>signals</b>
+				</div>
+				
+				<div class="description">
+					
+					
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+              <div class="details">
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+                  <div class="member">
+					<a name=".broadcast"> </a>
+					<div class="fixedFont">
+                      <div class="modifiers">&lt;static&gt; 
+                      </div>
+					
+					<span class="light">signals.</span><b>broadcast</b>(signal, Will)
+					
+					</div>
+					<div class="description">
+						<p>Broadcast to all listeners of the given signal to execute.</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>signal</b>
+									<i>Optional</i>
+								</dt>
+								<dd>The signal.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>Will</b>
+									
+								</dt>
+								<dd>be passed to each function as the argument.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+                  </div>
+				
+                  <div class="member">
+					<a name=".isObservable"> </a>
+					<div class="fixedFont">
+                      <div class="modifiers">&lt;static&gt; 
+                      </div>
+					<span class="light">{boolean}</span>
+					<span class="light">signals.</span><b>isObservable</b>(signal)
+					
+					</div>
+					<div class="description">
+						<p>Check is Signal is observable.</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>signal</b>
+									<i>Optional</i>
+								</dt>
+								<dd>The signal.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> if signal is observable.</dd>
+							
+							</dl>
+						
+						
+						
+
+                  </div>
+				
+                  <div class="member">
+					<a name=".listenerCount"> </a>
+					<div class="fixedFont">
+                      <div class="modifiers">&lt;static&gt; 
+                      </div>
+					<span class="light">{Number}</span>
+					<span class="light">signals.</span><b>listenerCount</b>(signal)
+					
+					</div>
+					<div class="description">
+						<p>Gets the count of Listeners for the given Signal.</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>signal</b>
+									<i>Optional</i>
+								</dt>
+								<dd>The signal.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Number}</span> Number of Listeners. (default = 0).</dd>
+							
+							</dl>
+						
+						
+						
+
+                  </div>
+				
+                  <div class="member">
+					<a name=".subscribe"> </a>
+					<div class="fixedFont">
+                      <div class="modifiers">&lt;static&gt; 
+                      </div>
+					
+					<span class="light">signals.</span><b>subscribe</b>(signal, Listener, context)
+					
+					</div>
+					<div class="description">
+						<p>Add a Listener to the given Signal.</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>signal</b>
+									<i>Optional</i>
+								</dt>
+								<dd>The signal.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Function}</span> <b>Listener</b>
+									
+								</dt>
+								<dd>that should be added to the Signal.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>context</b>
+									<i>Optional</i>
+								</dt>
+								<dd>Context on which the listener will be executed (object that should represent the `this`. (default = window)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+                  </div>
+				
+                  <div class="member">
+					<a name=".unsubscribe"> </a>
+					<div class="fixedFont">
+                      <div class="modifiers">&lt;static&gt; 
+                      </div>
+					
+					<span class="light">signals.</span><b>unsubscribe</b>(signal, Function)
+					
+					</div>
+					<div class="description">
+						<p>Remove a listener from the given signal.</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>signal</b>
+									<i>Optional</i>
+								</dt>
+								<dd>The signal.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Function}</span> <b>Function</b>
+									
+								</dt>
+								<dd>that should be removed.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+                  </div>
+				
+              </div>
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both;text-align:center">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.4.0 on Tue Dec 06 2011 17:18:07 GMT-0800 (PST)
+			 | template based on Steffen Siering <a href="http://github.com/urso/jsdoc-simple">jsdoc-simple</a>.
+		</div>
+	</body>
+</html>
