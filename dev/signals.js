@@ -128,7 +128,7 @@ var signals = (function (global, undefined) {
 		/**
 		* Broadcast to all listeners of the given signal to execute.
 		* @name signals.broadcast
-		* @param {string} [signal] The signal.
+		* @param {string} [signalName] The signal.
 		* @param {Object} [arg] Will be passed to each function as the argument.
 		* @function
 		*/
@@ -138,33 +138,33 @@ var signals = (function (global, undefined) {
 		/**
 		* Remove a listener from the given signal.
 		* @name signals.unsubscribe
-		* @param {string} [signal] The signal.
+		* @param {string} [signalName] The signal.
 		* @param {Function} Function that should be removed.
 		* @function
 		*/
-        unsubscribe: function (signal, fn) {
-            takeAction('unsubscribe', signal, fn);
+        unsubscribe: function (signalName, fn) {
+            takeAction('unsubscribe', signalName, fn);
         },
 		/**
 		* Check if Signal is observable.
 		* @name signals.isObservable
-		* @param {string} [signal] The signal.
+		* @param {string} [signalName] The signal.
 		* @return {boolean} if signal is observable.
 		* @function
 		*/
-        isObservable: function (signal) {
-            var signalType = getSignalType(signal);
+        isObservable: function (signalName) {
+            var signalType = getSignalType(signalName);
             return evts[signalType] !== undefined;
         },
 		/**
 		* Gets the count of Listeners for the given Signal.
 		* @name signals.listenerCount
-		* @param {string} [signal] The signal.
+		* @param {string} [signalName] The signal.
 		* @return {Number} Number of Listeners. (default = 0).
 		* @function
 		*/
-        listenerCount: function (signal) {
-            var signalType = getSignalType(signal),
+        listenerCount: function (signalName) {
+            var signalType = getSignalType(signalName),
                 actions = evts[signalType];
             return actions !== undefined ? actions.length : 0;
         }
