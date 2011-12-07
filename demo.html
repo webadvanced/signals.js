@@ -1,0 +1,43 @@
+<html>
+<title>demo</title>
+<head>
+<script type="text/javascript" src="signals.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+</head>
+<body>
+	<div>
+		<input type="text" id="say-something" />
+		<p>
+			You said, "<span id="say-it-back">...</span>" in <span id="char-count"></span> characters
+		</p>
+	</div>
+<script>
+(function (d, signals) {
+    //defining some *private* functions and variables
+    var updateCharCount,
+        updatePreview,
+        sayItBackSpan = d.getElementById('say-it-back'),
+        charCountSpan = d.getElementById('char-count');
+    updateCharCount = function (text) {
+        charCountSpan.innerHTML = text.length;
+    };
+    updatePreview = function (text) {
+        sayItBackSpan.innerHTML = text;
+    };
+
+    //Tell signals.js we want to subscribe our private 
+    //functions to the type sayingSomething
+    //(types are arbitrary text, *you* create the signal types)
+    signals.subscribe('sayingSomething', updateCharCount);
+    signals.subscribe('sayingSomething', updatePreview);
+}(document, signals));
+
+$(function () {
+    $('#say-something').bind("keydown, keyup", function () {
+        //Tell signals.js to broadcast that the user has said something and pass in the text!
+        signals.broadcast('sayingSomething', $(this).val());
+    });
+});
+</script>
+</body>
+</html>
