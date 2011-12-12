@@ -10,14 +10,14 @@
 * @name signals
 */
 var signals = (function (global, undefined) {
-	"use strict";
-    var evts = [],
-        makeObservable,
-        subscribeToSignal,
-        takeAction,
-		getSignalType,
-		fire,
-		unload;
+    "use strict";
+	var evts = [],
+	makeObservable,
+	subscribeToSignal,
+	takeAction,
+	getSignalType,
+	fire,
+	unload;
 	/**
 	* Private function that makes the given signal observable.
 	* <br />- <strong>(signals are an arbitrary string)</strong>
@@ -25,12 +25,12 @@ var signals = (function (global, undefined) {
 	* @name makeObservable
 	* @param {string} [signal] Name of the signal. (default = 'any').
 	*/
-    makeObservable = function (signal) {
-        var signalType = getSignalType(signal);
-        if (evts[signalType] === undefined) {
-            evts[signalType] = [];
-        }
-    };
+	makeObservable = function (signal) {
+		var signalType = getSignalType(signal);
+		if (evts[signalType] === undefined) {
+		    evts[signalType] = [];
+		}
+	};
 	/**
 	* Private function that subscribes a listener to a signal.
 	* <br />- <strong>(signals are an arbitrary string)</strong>
