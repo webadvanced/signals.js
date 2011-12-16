@@ -17,7 +17,8 @@ var signals = (function (global, undefined) {
 	takeAction,
 	getSignalType,
 	fire,
-	unload;
+	unload,
+    iterator;
 	/**
 	* Private function that makes the given signal observable.
 	* <br />- <strong>(signals are an arbitrary string)</strong>
@@ -54,10 +55,11 @@ var signals = (function (global, undefined) {
 	*/
     takeAction = function (action, signalName, arg) {
         var signalType = getSignalType(signalName),
+            actionsBefore = evts[signalType + ':before'],
             actions = evts[signalType],
-            i = 0,
-            l,
+            actionsAfter = evts[signalType + ':after'],
 			takeAction;
+
         if (actions === undefined) {
             return;
         }
@@ -66,9 +68,20 @@ var signals = (function (global, undefined) {
 		} else {
 			takeAction = unload;
 		}
-        l = actions.length;
+        if(actionsBefore) {
+            iterator(actionsBefore, takeAction, arg);
+        }
+
+        iterator(actions, takeAction, arg);
+
+        if(actionsAfter) {
+            iterator(actionsAfter, takeAction, arg);
+        }
+    };
+    iterator = function(collection, fn, arg) {
+        var i = 0, l = collection.length;
         for (i; i < l; i += 1) {
-            takeAction(actions[i], arg, actions, i);
+            fn(collection[i], arg, collection, i);
         }
     };
 	/**
@@ -111,7 +124,7 @@ var signals = (function (global, undefined) {
 		*/
 		return signal || 'any';
     };
-
+	
     return {
 		/**
 		* Add a Listener to the given Signal.
