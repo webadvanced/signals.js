@@ -9,6 +9,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <language>en-US</language>
     <projectUrl>https://github.com/webadvanced/signals.js</projectUrl>
+    <tags>JavaScript PubSub Observer</tags>
     <dependencies>
     </dependencies>
   </metadata> 

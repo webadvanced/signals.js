@@ -85,5 +85,43 @@ describe("Signals JS", function () {
         expect(signals.listenerCount('mock:event')).toEqual(4);
     });
 	
-	
+    describe('When using :before and :after', function() {
+        var fnIndex = 0,
+            beforeWasSuccess = false;
+            afterWasSuccess = false;
+        signals.subscribe('dynamic:event:before', function() {fnIndex = 1;});
+            signals.subscribe('dynamic:event', function() {
+                if(fnIndex === 1) {
+                    beforeWasSuccess = true;
+                }
+                fnIndex = 2;
+            });
+            signals.subscribe('dynamic:event:after', function() {
+                if(fnIndex === 2) {
+                    afterWasSuccess = true;
+                }
+                fnIndex = 3;
+        });
+        it('should call dynamic:event:before functions before functions subscribed to dynamic:event', function() {
+            runs(function() {
+              signals.broadcast('dynamic:event');
+            });
+            waits(150);
+            runs(function() {
+              expect(beforeWasSuccess).toEqual(true);
+            }); 
+        });    
+        it('should call dynamic:event:after functions after functions subscribed to dynamic:event', function() {
+            runs(function() {
+              signals.broadcast('dynamic:event');
+              afterWasSuccess = false;
+              beforeWasSuccess = false;
+              fnIndex = 0;
+            });
+            waits(150);
+            runs(function() {
+              expect(afterWasSuccess).toEqual(true);
+            }); 
+        });
+    });	
 });
