@@ -51,7 +51,7 @@ Signals.js is a light weight (1k minified) pure JavaScript implementation of the
 
 **:before and :after**
 
-Signals has a build in convention for executing functions before and after a signal is broadcast by only calling the root signal. Here is a simple example:
+Signals has a build in convention for executing functions before and after a signal is broadcast with only calling the root signal. Here is a simple example:
 
 	(function(w, signals) {
 		var doWork, wakeUp, goToBed;
