@@ -49,6 +49,35 @@ Signals.js is a light weight (1k minified) pure JavaScript implementation of the
 		});
 	});
 
+**:before and :after**
+
+Signals has a build in convention for executing functions before and after a signal is broadcast by only calling the root signal. Here is a simple example:
+
+	(function(w) {
+		var doWork, wakeUp, goToBed;
+
+		doWork = function() {
+			w.console.log('I am doin work!');
+		};
+		wakeUp = function() {
+			w.console.log('Getting out of bed and putting my work clothes on.');
+		};
+		goToBed = function() {
+			w.console.log('Going to bed after a long day doin work.');
+		};
+		signals.subscribe('evt:doingWork', doWork);
+		signals.subscribe('evt:doingWork:before', wakeUp);
+		signals.subscribe('evt:doingWork:after', goToBed);
+
+		w.onLoad = function() {
+			signals.broadcast('evt:doingWork');
+			// Console will read:
+			// Getting out of bed and putting my work clothes on.
+			// I am doin work!
+			// Going to bed after a long day doin work.
+		};
+	}(window, ));
+
 ###What is PubSub (Observer)?###
 
 *Sourced from [scriptjunkie{}](http://msdn.microsoft.com/en-us/scriptjunkie/hh201955.aspx) written by [Addy Osmani](http://addyosmani.com/blog/)*
