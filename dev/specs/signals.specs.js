@@ -29,6 +29,13 @@ describe("Signals JS", function () {
         expect(signals.isObservable('mock:event')).toEqual(true);
     });
 
+    it("should throw when adding anything other then a function as the callback", function() {
+        var failingFunc = function () {
+            signals.subscribe('mock:event', 'fakeFunc');
+        };
+        expect(failingFunc).toThrow('Callback must be a function');
+    });
+
 	it('should be able to set the context of "this" when subscribing', function() {
 		runs(function() {
 			var person = new Person('Jon');

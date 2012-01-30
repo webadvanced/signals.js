@@ -2,7 +2,7 @@
 <package> 
   <metadata> 
     <id>Signals.js</id> 
-    <version>0.1.1</version> 
+    <version>1.0</version> 
     <authors>Web Advanced</authors>
     <description>Signals.js is a light weight (1k minified) pure JavaScript implementation of the Observer pattern also known as PubSub. Using Signals.js in your JavaScript gives you the ability to break down our applications into smaller, more loosely coupled modules, which can improve general manageability.</description> 
     <summary>Signals.js is a light weight (1k minified) pure JavaScript implementation of the Observer pattern also known as PubSub.</summary>

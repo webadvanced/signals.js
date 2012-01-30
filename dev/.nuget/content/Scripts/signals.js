@@ -18,7 +18,8 @@ var signals = (function (global, undefined) {
 	getSignalType,
 	fire,
 	unload,
-    iterator;
+    iterator,
+    FUNCTION = 'function';
 	/**
 	* Private function that makes the given signal observable.
 	* <br />- <strong>(signals are an arbitrary string)</strong>
@@ -29,7 +30,7 @@ var signals = (function (global, undefined) {
 	makeObservable = function (signal) {
 		var signalType = getSignalType(signal);
 		if (evts[signalType] === undefined) {
-		    evts[signalType] = [];
+			evts[signalType] = [];
 		}
 	};
 	/**
@@ -42,6 +43,9 @@ var signals = (function (global, undefined) {
 	* @param {Object} [context] Context on which listener will be executed (object that should represent the `this`. (default = window)
 	*/
     subscribeToSignal = function (signalName, fn, context) {
+		if(typeof fn !== FUNCTION) {
+			throw 'Callback must be a function';
+		}
 		var signalType = getSignalType(signalName);
 		evts[signalType].push({callback: fn, obj: context || global});
     };
