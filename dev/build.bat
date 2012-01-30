@@ -9,5 +9,5 @@ echo Generating docs
 echo building nuget package
 copy ..\signals.min.js ".nuget\content\Scripts"
 copy signals.js ".nuget\content\Scripts"
-.nuget\NuGet Pack .nuget\Signals.js.nuspec
+.nuget\NuGet Pack .nuget\Signals.js.nuspec -OutputDirectory .nuget\
 echo ----------------------------------------------
