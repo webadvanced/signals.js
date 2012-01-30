@@ -53,7 +53,7 @@ Signals.js is a light weight (1k minified) pure JavaScript implementation of the
 
 Signals has a build in convention for executing functions before and after a signal is broadcast by only calling the root signal. Here is a simple example:
 
-	(function(w) {
+	(function(w, signals) {
 		var doWork, wakeUp, goToBed;
 
 		doWork = function() {
@@ -76,7 +76,9 @@ Signals has a build in convention for executing functions before and after a sig
 			// I am doin work!
 			// Going to bed after a long day doin work.
 		};
-	}(window, ));
+	}(window, window.signals));
+
+The convention is by adding :before or :after to your signal key, it will execute the function(s) before or after the root signal key is executed.
 
 ###What is PubSub (Observer)?###
 
