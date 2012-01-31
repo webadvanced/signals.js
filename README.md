@@ -11,17 +11,19 @@ Signals.js is a light weight (1k minified) pure JavaScript implementation of the
 	
 **HTML Markup**
 
+```html
 	<div>
 		<input type="text" id="say-something" />
 		<p>
 			You said, "<span id="say-it-back">...</span>" in <span id="char-count"></span> characters
 		</p>
 	</div>
-	
+```
+
 **JavaScript**
 
 *put below script just above the closing body tag*	
-
+```javascript
 	(function (d, signals) {
 		//defining some *private* functions and variables
 		var updateCharCount,
@@ -48,11 +50,13 @@ Signals.js is a light weight (1k minified) pure JavaScript implementation of the
 			signals.broadcast('sayingSomething', $(this).val());
 		});
 	});
+```
 
 **:before and :after**
 
 Signals has a build in convention for executing functions before and after a signal is broadcast with only calling the root signal. Here is a simple example:
 
+```javascript
 	(function(w, signals) {
 		var doWork, wakeUp, goToBed;
 
@@ -77,6 +81,7 @@ Signals has a build in convention for executing functions before and after a sig
 			// Going to bed after a long day doin work.
 		};
 	}(window, window.signals));
+```
 
 The convention is by adding :before or :after to your signal key, it will execute the function(s) before or after the root signal key is executed.
 
