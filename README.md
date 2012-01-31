@@ -12,44 +12,45 @@ Signals.js is a light weight (1k minified) pure JavaScript implementation of the
 **HTML Markup**
 
 ```html
-	<div>
-		<input type="text" id="say-something" />
-		<p>
-			You said, "<span id="say-it-back">...</span>" in <span id="char-count"></span> characters
-		</p>
-	</div>
+<div>
+	<input type="text" id="say-something" />
+	<p>
+		You said, "<span id="say-it-back">...</span>" in <span id="char-count"></span> characters
+	</p>
+</div>
 ```
 
 **JavaScript**
 
 *put below script just above the closing body tag*	
+
 ```javascript
-	(function (d, signals) {
-		//defining some *private* functions and variables
-		var updateCharCount,
-			updatePreview,
-			sayItBackSpan = d.getElementById('say-it-back'),
-			charCountSpan = d.getElementById('char-count');
-		updateCharCount = function (text) {
-			charCountSpan.innerHTML = text.length;
-		};
-		updatePreview = function (text) {
-			sayItBackSpan.innerHTML = text;
-		};
+(function (d, signals) {
+	//defining some *private* functions and variables
+	var updateCharCount,
+		updatePreview,
+		sayItBackSpan = d.getElementById('say-it-back'),
+		charCountSpan = d.getElementById('char-count');
+	updateCharCount = function (text) {
+		charCountSpan.innerHTML = text.length;
+	};
+	updatePreview = function (text) {
+		sayItBackSpan.innerHTML = text;
+	};
 
-		//Tell signals.js we want to subscribe our private 
-		//functions to the type sayingSomething
-		//(types are arbitrary text, *you* create the signal types)
-		signals.subscribe('sayingSomething', updateCharCount);
-		signals.subscribe('sayingSomething', updatePreview);
-	}(document, signals));
+	//Tell signals.js we want to subscribe our private 
+	//functions to the type sayingSomething
+	//(types are arbitrary text, *you* create the signal types)
+	signals.subscribe('sayingSomething', updateCharCount);
+	signals.subscribe('sayingSomething', updatePreview);
+}(document, signals));
 
-	$(function () {
-		$('#say-something').bind("keydown, keyup", function () {
-			//Tell signals.js to broadcast that the user has said something and pass in the text!
-			signals.broadcast('sayingSomething', $(this).val());
-		});
+$(function () {
+	$('#say-something').bind("keydown, keyup", function () {
+		//Tell signals.js to broadcast that the user has said something and pass in the text!
+		signals.broadcast('sayingSomething', $(this).val());
 	});
+});
 ```
 
 **:before and :after**
@@ -57,30 +58,30 @@ Signals.js is a light weight (1k minified) pure JavaScript implementation of the
 Signals has a build in convention for executing functions before and after a signal is broadcast with only calling the root signal. Here is a simple example:
 
 ```javascript
-	(function(w, signals) {
-		var doWork, wakeUp, goToBed;
+(function(w, signals) {
+	var doWork, wakeUp, goToBed;
 
-		doWork = function() {
-			w.console.log('I am doin work!');
-		};
-		wakeUp = function() {
-			w.console.log('Getting out of bed and putting my work clothes on.');
-		};
-		goToBed = function() {
-			w.console.log('Going to bed after a long day doin work.');
-		};
-		signals.subscribe('evt:doingWork', doWork);
-		signals.subscribe('evt:doingWork:before', wakeUp);
-		signals.subscribe('evt:doingWork:after', goToBed);
+	doWork = function() {
+		w.console.log('I am doin work!');
+	};
+	wakeUp = function() {
+		w.console.log('Getting out of bed and putting my work clothes on.');
+	};
+	goToBed = function() {
+		w.console.log('Going to bed after a long day doin work.');
+	};
+	signals.subscribe('evt:doingWork', doWork);
+	signals.subscribe('evt:doingWork:before', wakeUp);
+	signals.subscribe('evt:doingWork:after', goToBed);
 
-		w.onLoad = function() {
-			signals.broadcast('evt:doingWork');
-			// Console will read:
-			// Getting out of bed and putting my work clothes on.
-			// I am doin work!
-			// Going to bed after a long day doin work.
-		};
-	}(window, window.signals));
+	w.onLoad = function() {
+		signals.broadcast('evt:doingWork');
+		// Console will read:
+		// Getting out of bed and putting my work clothes on.
+		// I am doin work!
+		// Going to bed after a long day doin work.
+	};
+}(window, window.signals));
 ```
 
 The convention is by adding :before or :after to your signal key, it will execute the function(s) before or after the root signal key is executed.
