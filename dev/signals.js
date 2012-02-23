@@ -54,22 +54,24 @@ var signals = (function (global, undefined) {
 	* @private
 	* @name subscribeToSignal
 	* @param {string} [signalName] Name of the signal. (default = 'any').
-	* @param {Function} [fn] Callback function bound to the signal.
+	* @param {Object} [callbacks] Callback function or Array of functions to be bound to the signal.
 	* @param {Object} [context] Context on which listener will be executed (object that should represent the `this`. (default = window)
 	*/
-    subscribeToSignal = function (signalName, fn, context) {
+    subscribeToSignal = function (signalName, callbacks, context) {
 		var signalType = getSignalType(signalName), 
 			i = 0, 
-			l;
-		if (fn instanceof Array) {
-			l = fn.length;
-			for (i; i < l; i++){
-				checkArgument(fn, FUNCTION, 'Callback must be a function');	
-				evts[signalType].push({callback: fn[i], obj: context || global});
+			l,
+			callback;
+		if (callbacks instanceof Array) {
+			l = callbacks.length;
+			for (i; i < l; i++) {
+				callback = callbacks[i];
+				checkArgument(callback, FUNCTION, 'Callback must be a function');	
+				evts[signalType].push({callback: callback, obj: context || global});
 			}
 		} else {
-			checkArgument(fn, FUNCTION, 'Callback must be a function');
-			evts[signalType].push({callback: fn, obj: context || global});
+			checkArgument(callbacks, FUNCTION, 'Callback must be a function');
+			evts[signalType].push({callback: callbacks, obj: context || global});
 		}
     };
 	/**

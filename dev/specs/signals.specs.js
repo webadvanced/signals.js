@@ -10,6 +10,9 @@ describe("Signals JS", function () {
 		flag_2 = arg.flag_2;
 		mockString = arg.mockString;
 	}
+    function func_1() {};
+    function func_2() {};
+    function func_3() {};
     beforeEach(function () {
         falg_1 = false;
         falg_2 = false;
@@ -27,6 +30,11 @@ describe("Signals JS", function () {
     it("should be able to subscribe a single func to mock:event", function () {
         signals.subscribe('mock:event', fakeFunc);
         expect(signals.isObservable('mock:event')).toEqual(true);
+    });
+
+    it("should be able to subscribe a collection of funcs to mock:collection", function() {
+        signals.subscribe('mock:collection', [func_1, func_2, func_3]);
+        expect(signals.listenerCount('mock:collection')).toEqual(3);
     });
 
     it("should throw when adding anything other then a function as the callback", function() {
