@@ -1,2 +1,4 @@
 *.swp
 *.ps1
+*.sublime-project
+*.sublime-workspace

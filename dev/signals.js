@@ -19,7 +19,23 @@ var signals = (function (global, undefined) {
 	fire,
 	unload,
     iterator,
-    FUNCTION = 'function';
+    FUNCTION = 'function',
+    checkArgument;
+	/**
+	* Private function that checks a given argument agents is expected type.
+	* <br />- <strong>(will throw is arg does not match expected)</strong>
+	* @private
+	* @name checkArgument
+	* @param {object} [arg] Argument.
+	* @param {object} [expected] Expected type.
+	* @param {string} [message] Message to throw. (default = 'Invalid argument').
+	*/
+	checkArgument = function(arg, expected, message) {
+		if(typeof arg !== expected) {
+			throw message || 'Invalid argument.';
+		}
+	}
+
 	/**
 	* Private function that makes the given signal observable.
 	* <br />- <strong>(signals are an arbitrary string)</strong>
@@ -43,6 +59,9 @@ var signals = (function (global, undefined) {
 	* @param {Object} [context] Context on which listener will be executed (object that should represent the `this`. (default = window)
 	*/
     subscribeToSignal = function (signalName, fn, context) {
+		if(fn isinstanceof Array) {
+
+		}
 		if(typeof fn !== FUNCTION) {
 			throw 'Callback must be a function';
 		}
@@ -134,13 +153,13 @@ var signals = (function (global, undefined) {
 		* Add a Listener to the given Signal.
 		* @name signals.subscribe
 		* @param {string} [signalName] The signals name.
-		* @param {Function} Listener that should be added to the Signal.
+		* @param {Function} or {Array of Functions} Listener that should be added to the Signal.
 		* @param {Object} [context] Context on which the listener will be executed (object that should represent the `this`. (default = window)
 		* @function
 		*/
-        subscribe: function (signalName, fn, context) {
+        subscribe: function (signalName, callback, context) {
             makeObservable(signalName);
-            subscribeToSignal(signalName, fn, context);
+            subscribeToSignal(signalName, callback, context);
         },
 		/**
 		* Broadcast to all listeners of the given signal to execute.
