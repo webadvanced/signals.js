@@ -156,16 +156,16 @@ var signals = (function (global, undefined) {
 	
     return {
 		/**
-		* Add a Listener to the given Signal.
+		* Add a Listener or collection of listeners to the given Signal.
 		* @name signals.subscribe
-		* @param {string} [signalName] The signals name.
-		* @param {Function} or {Array of Functions} Listener that should be added to the Signal.
+		* @param {string} The signals name.
+		* @param {Object}  Array of Functions or function that should be added to the Signal.
 		* @param {Object} [context] Context on which the listener will be executed (object that should represent the `this`. (default = window)
 		* @function
 		*/
-        subscribe: function (signalName, callback, context) {
+        subscribe: function (signalName, callbacks, context) {
             makeObservable(signalName);
-            subscribeToSignal(signalName, callback, context);
+            subscribeToSignal(signalName, callbacks, context);
         },
 		/**
 		* Broadcast to all listeners of the given signal to execute.

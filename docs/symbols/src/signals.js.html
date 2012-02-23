@@ -163,16 +163,16 @@
 <span class='line'>156</span> </span><span class="WHIT">	</span><span class="WHIT">
 <span class='line'>157</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
 <span class='line'>158</span> </span><span class="WHIT">		</span><span class="COMM">/**
-<span class='line'>159</span> 		* Add a Listener to the given Signal.
+<span class='line'>159</span> 		* Add a Listener or collection of listeners to the given Signal.
 <span class='line'>160</span> 		* @name signals.subscribe
-<span class='line'>161</span> 		* @param {string} [signalName] The signals name.
-<span class='line'>162</span> 		* @param {Function} or {Array of Functions} Listener that should be added to the Signal.
+<span class='line'>161</span> 		* @param {string} The signals name.
+<span class='line'>162</span> 		* @param {Object}  Array of Functions or function that should be added to the Signal.
 <span class='line'>163</span> 		* @param {Object} [context] Context on which the listener will be executed (object that should represent the `this`. (default = window)
 <span class='line'>164</span> 		* @function
 <span class='line'>165</span> 		*/</span><span class="WHIT">
-<span class='line'>166</span> </span><span class="WHIT">        </span><span class="NAME">subscribe</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">signalName</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">callback</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">context</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>166</span> </span><span class="WHIT">        </span><span class="NAME">subscribe</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">signalName</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">callbacks</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">context</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
 <span class='line'>167</span> </span><span class="WHIT">            </span><span class="NAME">makeObservable</span><span class="PUNC">(</span><span class="NAME">signalName</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>168</span> </span><span class="WHIT">            </span><span class="NAME">subscribeToSignal</span><span class="PUNC">(</span><span class="NAME">signalName</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">callback</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">context</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>168</span> </span><span class="WHIT">            </span><span class="NAME">subscribeToSignal</span><span class="PUNC">(</span><span class="NAME">signalName</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">callbacks</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">context</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>169</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
 <span class='line'>170</span> </span><span class="WHIT">		</span><span class="COMM">/**
 <span class='line'>171</span> 		* Broadcast to all listeners of the given signal to execute.
