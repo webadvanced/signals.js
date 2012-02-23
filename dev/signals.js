@@ -34,8 +34,7 @@ var signals = (function (global, undefined) {
 		if(typeof arg !== expected) {
 			throw message || 'Invalid argument.';
 		}
-	}
-
+	};
 	/**
 	* Private function that makes the given signal observable.
 	* <br />- <strong>(signals are an arbitrary string)</strong>
@@ -59,14 +58,17 @@ var signals = (function (global, undefined) {
 	* @param {Object} [context] Context on which listener will be executed (object that should represent the `this`. (default = window)
 	*/
     subscribeToSignal = function (signalName, fn, context) {
+		var signalType = getSignalType(signalName), i = 0; l;
 		if(fn isinstanceof Array) {
-
+			l = fn.length;
+			for(i; i < l; i++){
+				checkArgument(fn, FUNCTION, 'Callback must be a function');	
+				evts[signalType].push({callback: fn[i], obj: context || global});
+			}
+		} else {
+			checkArgument(fn, FUNCTION, 'Callback must be a function');
+			evts[signalType].push({callback: fn, obj: context || global});
 		}
-		if(typeof fn !== FUNCTION) {
-			throw 'Callback must be a function';
-		}
-		var signalType = getSignalType(signalName);
-		evts[signalType].push({callback: fn, obj: context || global});
     };
 	/**
 	* Private function that handles the execution of Listeners for a given Signal or unsubscribe the Listener from the Signal
