@@ -31,7 +31,7 @@ var signals = (function (global, undefined) {
 	* @param {string} [message] Message to throw. (default = 'Invalid argument').
 	*/
 	checkArgument = function(arg, expected, message) {
-		if(typeof arg !== expected) {
+		if (typeof arg !== expected) {
 			throw message || 'Invalid argument.';
 		}
 	};
@@ -58,10 +58,12 @@ var signals = (function (global, undefined) {
 	* @param {Object} [context] Context on which listener will be executed (object that should represent the `this`. (default = window)
 	*/
     subscribeToSignal = function (signalName, fn, context) {
-		var signalType = getSignalType(signalName), i = 0; l;
-		if(fn isinstanceof Array) {
+		var signalType = getSignalType(signalName), 
+			i = 0, 
+			l;
+		if (fn instanceof Array) {
 			l = fn.length;
-			for(i; i < l; i++){
+			for (i; i < l; i++){
 				checkArgument(fn, FUNCTION, 'Callback must be a function');	
 				evts[signalType].push({callback: fn[i], obj: context || global});
 			}
