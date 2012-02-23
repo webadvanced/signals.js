@@ -84,6 +84,13 @@ Signals has a build in convention for executing functions before and after a sig
 }(window, window.signals));
 ```
 
+**Subscribing collections**
+
+You can also subscribe collections to a single signal:
+
+```javascript
+signals.subscribe('evt:doingWork', [func1, func2, func3]);
+```
 The convention is by adding :before or :after to your signal key, it will execute the function(s) before or after the root signal key is executed.
 
 ###What is PubSub (Observer)?###
