@@ -20,7 +20,8 @@ var signals = ( function ( global, undefined ) {
 	unload,
     iterator,
     FUNCTION = 'function',
-    checkArgument;
+    checkArgument,
+    createProxyFor;
 	/**
 	* Private function that checks a given argument agents is expected type.
 	* <br />- <strong>(will throw is arg does not match expected)</strong>
@@ -73,6 +74,17 @@ var signals = ( function ( global, undefined ) {
 			checkArgument(callbacks, FUNCTION, 'Callback must be a function');
 			evts[signalType].push({callback: callbacks, obj: context || global});
 		}
+    };
+    /**
+    * Private function that returns a function that will handle the execution of Listeners for a given Signal
+    * @private
+    * @name createProxyFor
+    * @param {string} [signalName] Name of the signal. (default = 'any').
+    */
+    createProxyFor = function ( signalName ) {
+        return (function( arg ) {
+            takeAction( 'broadcast', signalName, arg );
+        });
     };
 	/**
 	* Private function that handles the execution of Listeners for a given Signal or unsubscribe the Listener from the Signal
@@ -185,7 +197,7 @@ var signals = ( function ( global, undefined ) {
         * @function
         */
         proxy: function ( signalName ) {
-            createProxyFor( signalName );
+            return createProxyFor( signalName );
         },
 		/**
 		* Remove a listener from the given signal.

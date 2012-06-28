@@ -138,5 +138,39 @@ describe("Signals JS", function () {
               expect(afterWasSuccess).toEqual(true);
             }); 
         });
-    });	
+    });
+    
+    describe('when using proxy', function(){
+        var message, prox;
+        signals.subscribe('proxyspec', function( m ) {message = m || 'broadcast proxy';});
+        prox = signals.proxy('proxyspec');
+        it('should return a broadcast function for the given signal name', function() {
+            expect(Object.prototype.toString.call(prox)).toBe('[object Function]');
+        });
+
+        it('should not execute the listeners for the given signal name', function(){
+            expect(message).toBe(undefined);
+        });
+
+        it('should return a function that will call all listeners when executed', function() {
+            runs(function() {
+              prox();
+            });
+            waits(150);
+            runs(function() {
+              expect(message).toBe("broadcast proxy");
+            });
+        });
+
+        it('should return a function that will call all listeners and pass an arg when executed', function() {
+            runs(function() {
+              prox('a custome message!');
+            });
+            waits(150);
+            runs(function() {
+              expect(message).toBe("a custome message!");
+            });
+        });
+
+    });
 });
