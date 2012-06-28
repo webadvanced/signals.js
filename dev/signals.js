@@ -177,6 +177,16 @@ var signals = ( function ( global, undefined ) {
         broadcast: function ( signalName, arg ) {
             takeAction( 'broadcast', signalName, arg );
         },
+        /**
+        * Return a broadcast function for the given signal.
+        * @name signals.proxy
+        * @param {string} [signalName] The signal.
+        * @return {function} when executed will broadcast for given sigalName.
+        * @function
+        */
+        proxy: function ( signalName ) {
+            createProxyFor( signalName );
+        },
 		/**
 		* Remove a listener from the given signal.
 		* @name signals.unsubscribe
