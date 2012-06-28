@@ -100,7 +100,7 @@ You can also use signals *.proxy( 'signalName' )* to return a function a callbac
 
 ```javascript
 var doSomethingAfterAjaxCall = function( data ) {
-	alter( data );
+	alert( data );
 };
 signals.subscribe('evt:ajaxComplete', doSomethingAfterAjaxCall);
 
