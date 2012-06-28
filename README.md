@@ -88,10 +88,23 @@ The convention is by adding :before or :after to your signal key, it will execut
 
 **Subscribing collections**
 
-You can also subscribe collections to a single signal:
+You can also subscribe collections to a single:
 
 ```javascript
 signals.subscribe('evt:doingWork', [func1, func2, func3]);
+```
+
+**Using signals with callbacks**
+
+You can also use signals *.proxy( 'signalName' )* to return a function a callback can use:
+
+```javascript
+var doSomethingAfterAjaxCall = function( data ) {
+	alter( data );
+};
+signals.subscribe('evt:ajaxComplete', doSomethingAfterAjaxCall);
+
+$.get('/handel/ajax', signals.proxy( 'evt:ajaxComplete' ));
 ```
 
 ###What is PubSub (Observer)?###
