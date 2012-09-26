@@ -1,0 +1,402 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pro",
+				"prox"
+			],
+			[
+				"ex",
+				"expect"
+			],
+			[
+				"sig",
+				"signal"
+			],
+			[
+				"func",
+				"function"
+			],
+			[
+				"signalNam",
+				"signalName"
+			],
+			[
+				"ta",
+				"takeAction"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"callba",
+				"callback"
+			],
+			[
+				"to",
+				"toEqual"
+			],
+			[
+				"callbac",
+				"callbacks"
+			],
+			[
+				"val",
+				"value"
+			],
+			[
+				"sai",
+				"sayItBackSpan"
+			],
+			[
+				"fu",
+				"fullName"
+			],
+			[
+				"call",
+				"Callback"
+			],
+			[
+				"Call",
+				"Callback"
+			],
+			[
+				"Fun",
+				"FUNCTION"
+			],
+			[
+				"itm",
+				"items"
+			],
+			[
+				"it",
+				"item"
+			],
+			[
+				"f",
+				"function"
+			],
+			[
+				"scr",
+				"SCRIPT	Tag"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 5051,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "dev/signals.js",
+			"settings":
+			{
+				"buffer_size": 7857,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "*.swp\n*.ps1\n*.sublime-project\n*.sublime-workspace",
+			"file": ".gitignore",
+			"file_size": 52,
+			"file_write_time": 129745056524572615,
+			"settings":
+			{
+				"buffer_size": 49,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/S/development/playground/javascript/signalsjs/dev/.nuget/Signals.js.1.0.1.nupkg",
+		"/S/development/playground/javascript/signalsjs/dev/specs/signals.specs.js",
+		"/S/development/playground/javascript/signalsjs/dev/.nuget/signals.js.nuspec",
+		"/S/development/playground/javascript/signalsjs/dev/signals.js",
+		"/C/Users/Paul/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Paul/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/S/development/playground/javascript/signalsjs/.gitignore",
+		"/S/Downloads/webadvanced-jMoney-108f630 (1)/webadvanced-jMoney-108f630/jmoney.tests.html",
+		"/S/development/playground/javascript/backbone_require/index.html",
+		"/S/development/playground/javascript/requirejs/assets/javascript/lib/jquery.js",
+		"/S/development/playground/javascript/requirejs/assets/javascript/lib/require.js",
+		"/S/development/playground/javascript/requirejs/index.html",
+		"/S/development/playground/javascript/mediator.js",
+		"/S/development/playground/javascript/spine_1/index.html",
+		"/S/development/playground/javascript/spine_1/assets/javascript/models/task.js",
+		"/S/development/playground/javascript/spine_1/assets/javascript/controllers/TasksController.js",
+		"/S/development/playground/javascript/spine_1/assets/javascript/controllers/TaskItemController.js",
+		"/S/development/playground/javascript/spine_1/assets/javascript/application.js",
+		"/S/development/playground/javascript/signalsjs/README.md",
+		"/S/development/playground/SimpleHoneypot/buildscripts/SimpleHoneypot.nuspec",
+		"/S/Downloads/HTF/HTF/index.html",
+		"/S/development/playground/SimpleHoneypot/.gitignore",
+		"/S/Downloads/HTF/HTF/Assets/Scripts/htf.js",
+		"/C/Downloads/Adobe Photoshop CS5 Extended (Crack + Instructions)/hosts",
+		"/S/development/playground/HoursTillFriday/.gitignore",
+		"/S/development/playground/javascript/signalsjs/dev/build.bat",
+		"/S/development/playground/javascript/signalsjs/dev/.nuget/publish-nuget-package.ps1",
+		"/S/development/playground/SimpleHoneypot/buildscripts/publish-nuget-packages.ps1",
+		"/S/development/playground/javascript/signalsjs/dev/publish-nuget-package.ps1",
+		"/S/development/playground/javascript/spine_1/assets/css/application.css",
+		"/S/development/playground/javascript/spine_1/assets/javascript/lib/jquery-tmpl.js",
+		"/C/Users/Paul/AppData/Local/Temp/Rar$DR71.600/maccman-spine-ea13e0e/lib/tabs.js",
+		"/C/Users/Paul/AppData/Local/Temp/Rar$DR71.600/maccman-spine-ea13e0e/lib/tmpl.js",
+		"/C/Users/Paul/AppData/Local/Temp/Rar$DR71.600/maccman-spine-ea13e0e/lib/spine.js",
+		"/C/Users/Paul/AppData/Local/Temp/Rar$DR71.600/maccman-spine-ea13e0e/lib/route.js",
+		"/C/Users/Paul/AppData/Local/Temp/Rar$DR71.600/maccman-spine-ea13e0e/lib/manager.js",
+		"/C/Users/Paul/AppData/Local/Temp/Rar$DR71.600/maccman-spine-ea13e0e/lib/relation.js",
+		"/C/Users/Paul/AppData/Local/Temp/Rar$DR71.600/maccman-spine-ea13e0e/lib/local.js",
+		"/C/Users/Paul/AppData/Local/Temp/Rar$DR71.600/maccman-spine-ea13e0e/lib/ajax.js",
+		"/C/Users/Paul/AppData/Local/Temp/Rar$DR71.600/maccman-spine-ea13e0e/lib/list.js",
+		"/S/development/playground/javascript/spine_1/assets/lib/jquery.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"createProxyFor",
+			"throw",
+			"jshint",
+			"John",
+			"console",
+			"save",
+			"all",
+			"sub",
+			"function",
+			"clear"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "README.md",
+					"settings":
+					{
+						"buffer_size": 5051,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								349,
+								349
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "dev/signals.js",
+					"settings":
+					{
+						"buffer_size": 7857,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								361,
+								361
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": ".gitignore",
+					"settings":
+					{
+						"buffer_size": 49,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								49,
+								49
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 32.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 198.0,
+	"status_bar_visible": true
+}
