@@ -1,0 +1,60 @@
+<html>
+<title>testing</title>
+<head>
+<script type="text/javascript" src="signals.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+	<div>
+		<input type="button" id="signal" value="send signal"  />
+		<ul id="status">
+			
+		</ul>
+	</div>
+<script>
+(function ($, signals) {
+    
+    var status = $('#status'),
+        send = $('#signal'),
+        sendAsync = $('#signalAsync'),
+        before,
+        main,
+        mainLong,
+        after,
+        appendStatus;
+    
+    before = function() {
+        appendStatus('before called and complete.');
+    };
+
+    main = function() {
+        appendStatus('main called.');
+    };
+    mainLong = function() {
+        var count = 0;
+        for(var i = 0; i < 1000000000; i++) {
+            count += i;
+        }
+        appendStatus('main complete.');
+    };
+
+    after = function() {
+        appendStatus('after called and complete.');
+    };
+
+    appendStatus = function( text ) {
+        $('<li />', {
+            text: text
+        }).appendTo(status);
+    };
+
+    
+    signals.subscribe('doit:before', before);
+    signals.subscribe('doit', [ main, mainLong ]);
+    signals.subscribe('doit:after', after);
+
+    send.on("click", signals.proxy('doit'));
+}(jQuery, signals));
+</script>
+</body>
+</html>
