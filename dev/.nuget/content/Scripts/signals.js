@@ -2,7 +2,7 @@
 * Signals.js <https://github.com/webadvanced/signals.js>
 * Released under the MIT license
 * Author: Web Advanced
-* Version: 1.2.0
+* Version: 1.3.0
 */
 
 /**
